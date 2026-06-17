@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assessment Records</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#0f172a;
+            color:white;
+            min-height:100vh;
+        }
+
+        .header{
+            background:#1e293b;
+            padding:25px;
+            text-align:center;
+            box-shadow:0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .header h1{
+            color:#3b82f6;
+            font-size:35px;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:40px auto;
+        }
+
+        .top-buttons{
+            margin-bottom:25px;
+        }
+
+        .create-btn{
+            background:#3b82f6;
+            color:white;
+            text-decoration:none;
+            padding:15px 25px;
+            border-radius:10px;
+            transition:0.3s;
+        }
+
+        .create-btn:hover{
+            background:#2563eb;
+        }
+
+        .dashboard-btn{
+            background:#8b5cf6;
+            color:white;
+            text-decoration:none;
+            padding:15px 25px;
+            border-radius:10px;
+            margin-left:15px;
+            transition:0.3s;
+        }
+
+        .dashboard-btn:hover{
+            background:#7c3aed;
+        }
+
+        .assessment-table{
+            width:100%;
+            border-collapse:collapse;
+            overflow:hidden;
+            border-radius:15px;
+            box-shadow:0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .assessment-table th{
+            background:#3b82f6;
+            padding:18px;
+            text-align:center;
+        }
+
+        .assessment-table td{
+            background:#1e293b;
+            padding:18px;
+            text-align:center;
+            border-bottom:1px solid #334155;
+        }
+
+        .assessment-table tr:hover td{
+            background:#273549;
+        }
+
+        .update-btn{
+            background:#22c55e;
+            color:white;
+            padding:10px 18px;
+            text-decoration:none;
+            border-radius:8px;
+            margin-right:10px;
+            transition:0.3s;
+        }
+
+        .update-btn:hover{
+            background:#16a34a;
+        }
+
+        .delete-btn{
+            background:#dc2626;
+            color:white;
+            padding:10px 18px;
+            text-decoration:none;
+            border-radius:8px;
+            transition:0.3s;
+        }
+
+        .delete-btn:hover{
+            background:#b91c1c;
+        }
+
+        .empty-message{
+            background:#1e293b;
+            padding:30px;
+            border-radius:15px;
+            text-align:center;
+            color:#94a3b8;
+            font-size:18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Assessment Records</h1>
+</div>
+
+<div class="container">
+
+    <div class="top-buttons">
+        <a href="/student/assessments"
+           class="create-btn">
+            + Create New Assessment
+        </a>
+        <a href="/student/"
+           class="dashboard-btn">
+            Back to Dashboard
+        </a>
+    </div>
+
+    {% if assessments %}
+
+    <table class="assessment-table">
+
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>Total Marks</th>
+            <th>Obtained Marks</th>
+            <th>Percentage</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for assessment in assessments %}
+
+        <tr>
+
+            <td>{{ assessment.id }}</td>
+
+            <td>{{ assessment.title }}</td>
+
+            <td>{{ assessment.subject }}</td>
+
+            <td>{{ assessment.total_marks }}</td>
+
+            <td>{{ assessment.obtained_marks }}</td>
+
+            <td>
+                {{ ((assessment.obtained_marks / assessment.total_marks) * 100) | round(2) }}%
+            </td>
+
+            <td>
+
+                <a href="/assessment/update/{{ assessment.id }}"
+                   class="update-btn">
+                    Edit
+                </a>
+
+                <a href="/assessment/delete/{{ assessment.id }}"
+                   class="delete-btn">
+                    Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <div class="empty-message">
+        No assessments created yet.
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -400,7 +400,7 @@ def create_assessment(
     db.commit()
 
     return RedirectResponse(
-        url="/student/assessments",
+        url="/student/assessments/assessment_display",
         status_code=303
     )
 
@@ -425,6 +425,23 @@ def assessments_page(
             "assessments": assessments
         }
     )
+
+@app.get("/student/assessments/assessment_display")
+def assessment_display(
+    request: Request,
+    db: Session = Depends(get_db)
+):
+
+    assessments = db.query(Assessment).all()
+
+    return templates.TemplateResponse(
+    request=request,
+    name="assessment_display.html",
+    context={
+        "request": request,
+        "assessments": assessments
+    }
+)
 
 @app.post("/assessment/update/{assessment_id}")
 def update_assessment(
