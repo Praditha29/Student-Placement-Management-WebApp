@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Attendance</title>
+</head>
+<body>
+
+<h1>Mark Attendance</h1>
+
+<form action="/attendance/create"
+method="post">
+
+<input type="number"
+name="student_id"
+placeholder="Student ID">
+
+<br><br>
+
+<input type="date"
+name="date">
+
+<br><br>
+
+<select name="status">
+
+<option>
+Present
+</option>
+
+<option>
+Absent
+</option>
+
+</select>
+
+<br><br>
+
+<button>
+Submit
+</button>
+
+</form>
+
+</body>
+</html>

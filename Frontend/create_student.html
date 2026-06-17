@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Student</title>
+</head>
+<body>
+
+<h1>Create Student</h1>
+
+<form action="/student/create"
+      method="post">
+
+<input type="text"
+name="name"
+placeholder="Name"
+required>
+
+<br><br>
+
+<input type="email"
+name="email"
+placeholder="Email"
+required>
+
+<br><br>
+
+<input type="text"
+name="department"
+placeholder="Department"
+required>
+
+<br><br>
+
+<input type="number"
+name="semester"
+required>
+
+<br><br>
+
+<input type="number"
+step="0.01"
+name="cgpa"
+required>
+
+<br><br>
+
+<input type="number"
+step="0.01"
+name="attendance_percentage"
+required>
+
+<br><br>
+
+<select name="placement_status">
+
+<option>
+Placed
+</option>
+
+<option>
+Not Placed
+</option>
+
+</select>
+
+<br><br>
+
+<button>
+Create
+</button>
+
+</form>
+
+</body>
+</html>

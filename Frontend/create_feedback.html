@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interview Feedback</title>
+</head>
+<body>
+
+<h1>Interview Feedback</h1>
+
+<form action="/feedback/create"
+method="post">
+
+<input type="number"
+name="student_id"
+placeholder="Student ID">
+
+<br><br>
+
+<input type="text"
+name="company_name"
+placeholder="Company Name">
+
+<br><br>
+
+<textarea name="technical_feedback">
+</textarea>
+
+<br><br>
+
+<textarea name="hr_feedback">
+</textarea>
+
+<br><br>
+
+<select name="result">
+
+<option>
+Selected
+</option>
+
+<option>
+Rejected
+</option>
+
+<option>
+Waiting
+</option>
+
+</select>
+
+<br><br>
+
+<button>
+Save
+</button>
+
+</form>
+
+</body>
+</html>

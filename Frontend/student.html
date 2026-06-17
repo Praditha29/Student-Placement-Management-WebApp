@@ -1,0 +1,200 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#0f172a;
+            color:white;
+            display:flex;
+        }
+
+        .sidebar{
+            width:250px;
+            height:100vh;
+            background:#1e293b;
+            padding:30px 20px;
+            position:fixed;
+        }
+
+        .sidebar h2{
+            text-align:center;
+            margin-bottom:40px;
+            color:#3b82f6;
+        }
+
+        .sidebar a{
+            display:block;
+            padding:15px;
+            margin-bottom:15px;
+            text-decoration:none;
+            color:#cbd5e1;
+            border-radius:10px;
+            transition:0.3s;
+        }
+
+        .sidebar a:hover{
+            background:#3b82f6;
+            color:white;
+        }
+
+        .main-content{
+            margin-left:250px;
+            width:100%;
+            padding:40px;
+        }
+
+        .welcome{
+            margin-bottom:30px;
+        }
+
+        .welcome h1{
+            font-size:35px;
+        }
+
+        .welcome p{
+            color:#94a3b8;
+            margin-top:10px;
+        }
+
+        .cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .card{
+            background:#1e293b;
+            padding:30px;
+            border-radius:20px;
+            transition:0.3s;
+            box-shadow:0px 0px 20px rgba(0,0,0,0.2);
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+        }
+
+        .card h2{
+            margin-bottom:15px;
+            color:#60a5fa;
+        }
+
+        .card p{
+            color:#cbd5e1;
+            line-height:1.5;
+        }
+
+        .logout-btn{
+            background:#dc2626;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:10px;
+            cursor:pointer;
+            margin-top:30px;
+            text-decoration:none;
+            display:inline-block;
+        }
+
+        .logout-btn:hover{
+            background:#b91c1c;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="sidebar">
+
+    <h2>SPMS</h2>
+
+    <a href="/student/dashboard">Dashboard</a>
+
+    <a href="/student/assessments">Assessments</a>
+
+    <a href="/student/attendance">Attendance</a>
+
+    <a href="/student/feedback">Interview Feedback</a>
+
+    <a href="/student/drives">Placement Drives</a>
+
+    <a href="/student/profile">Profile</a>
+
+</div>
+
+
+<div class="main-content">
+
+    <div class="welcome">
+        <h1>Welcome, {{ current_user.name }}</h1>
+        <p>Student Placement Management System</p>
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Assessments</h2>
+            <p>
+                View your aptitude tests and coding assessments.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Attendance</h2>
+            <p>
+                Track your attendance percentage and training sessions.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Placement Drives</h2>
+            <p>
+                Explore upcoming companies and eligibility criteria.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Interview Feedback</h2>
+            <p>
+                Check comments and suggestions from trainers.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Performance Analytics</h2>
+            <p>
+                Monitor your CGPA, scores, and overall progress.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Profile</h2>
+            <p>
+                View and update your student information.
+            </p>
+        </div>
+
+    </div>
+
+    <a href="/logout" class="logout-btn">
+        Logout
+    </a>
+
+</div>
+
+</body>
+</html>
+```
