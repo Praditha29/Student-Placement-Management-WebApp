@@ -397,6 +397,99 @@ def create_assessment(
 
     return RedirectResponse("/trainer", status_code=303)
 
+
+# =====================
+# STUDENT PAGES
+# =====================
+
+@app.get("/student/assessments", response_class=HTMLResponse)
+def assessment_page(
+    request: Request,
+    current_user: User = Depends(get_current_user)
+):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=303)
+
+    return templates.TemplateResponse(
+        request=request,
+        name="assessment.html",
+        context={"current_user": current_user}
+    )
+
+
+@app.get("/student/attendance", response_class=HTMLResponse)
+def attendance_page(
+    request: Request,
+    current_user: User = Depends(get_current_user)
+):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=303)
+
+    return templates.TemplateResponse(
+        request=request,
+        name="attendance.html",
+        context={"current_user": current_user}
+    )
+
+@app.get("/student/assignment", response_class=HTMLResponse)
+def assignment_page(
+    request: Request,
+    current_user: User = Depends(get_current_user)
+):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=303)
+
+    return templates.TemplateResponse(
+        request=request,
+        name="assignment.html",
+        context={"current_user": current_user}
+    )
+
+@app.get("/student/feedback", response_class=HTMLResponse)
+def feedback_page(
+    request: Request,
+    current_user: User = Depends(get_current_user)
+):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=303)
+
+    return templates.TemplateResponse(
+        request=request,
+        name="feedback.html",
+        context={"current_user": current_user}
+    )
+
+
+@app.get("/student/drives", response_class=HTMLResponse)
+def drive_page(
+    request: Request,
+    current_user: User = Depends(get_current_user)
+):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=303)
+
+    return templates.TemplateResponse(
+        request=request,
+        name="placement.html",
+        context={"current_user": current_user}
+    )
+
+@app.get("/student/profile", response_class=HTMLResponse)
+def profile(
+    request: Request,
+    current_user: User = Depends(get_current_user)
+):
+    if not current_user:
+        return RedirectResponse(url="/login", status_code=303)
+
+    return templates.TemplateResponse(
+        request=request,
+        name="student_profile.html",
+        context={"current_user": current_user}
+    )
+
+
+
 # @app.get("/", response_class=HTMLResponse)
 # def home_page(request: Request, current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
 #     if not current_user:
