@@ -1,75 +1,140 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Create Student</title>
+    <title>Create Student</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#0f172a;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:450px;
+            background:#1e293b;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0px 0px 20px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            color:white;
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        .form-group{
+            margin-bottom:18px;
+        }
+
+        label{
+            display:block;
+            color:#cbd5e1;
+            margin-bottom:6px;
+        }
+
+        input, select{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            background:#334155;
+            color:white;
+            outline:none;
+        }
+
+        input::placeholder{
+            color:#94a3b8;
+        }
+
+        select{
+            cursor:pointer;
+        }
+
+        .btn-submit{
+            width:100%;
+            padding:14px;
+            background:#22c55e;
+            color:white;
+            border:none;
+            border-radius:10px;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn-submit:hover{
+            background:#16a34a;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<h1>Create Student</h1>
+<div class="container">
 
-<form action="/student/create"
-      method="post">
+    <h1>Create Student</h1>
 
-<input type="text"
-name="name"
-placeholder="Name"
-required>
+    <form action="/student/create" method="post">
 
-<br><br>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Enter Name" required>
+        </div>
 
-<input type="email"
-name="email"
-placeholder="Email"
-required>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter Email" required>
+        </div>
 
-<br><br>
+        <div class="form-group">
+            <label>Department</label>
+            <input type="text" name="department" placeholder="Enter Department" required>
+        </div>
 
-<input type="text"
-name="department"
-placeholder="Department"
-required>
+        <div class="form-group">
+            <label>Semester</label>
+            <input type="number" name="semester" placeholder="Enter Semester" required>
+        </div>
 
-<br><br>
+        <div class="form-group">
+            <label>CGPA</label>
+            <input type="number" step="0.01" name="cgpa" placeholder="Enter CGPA" required>
+        </div>
 
-<input type="number"
-name="semester"
-required>
+        <div class="form-group">
+            <label>Attendance (%)</label>
+            <input type="number" step="0.01" name="attendance_percentage" placeholder="Enter Attendance %" required>
+        </div>
 
-<br><br>
+        <div class="form-group">
+            <label>Placement Status</label>
+            <select name="placement_status">
+                <option>Placed</option>
+                <option>Not Placed</option>
+            </select>
+        </div>
 
-<input type="number"
-step="0.01"
-name="cgpa"
-required>
+        <button type="submit" class="btn-submit">
+            Create Student
+        </button>
 
-<br><br>
+    </form>
 
-<input type="number"
-step="0.01"
-name="attendance_percentage"
-required>
-
-<br><br>
-
-<select name="placement_status">
-
-<option>
-Placed
-</option>
-
-<option>
-Not Placed
-</option>
-
-</select>
-
-<br><br>
-
-<button>
-Create
-</button>
-
-</form>
+</div>
 
 </body>
 </html>

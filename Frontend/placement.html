@@ -1,51 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Create Drive</title>
+    <title>Create Placement Drive</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#0f172a;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:450px;
+            background:#1e293b;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0px 0px 20px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            color:white;
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            color:#cbd5e1;
+            margin-bottom:8px;
+        }
+
+        input{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:10px;
+            background:#334155;
+            color:white;
+            outline:none;
+        }
+
+        input::placeholder{
+            color:#94a3b8;
+        }
+
+        .btn-submit{
+            width:100%;
+            padding:15px;
+            background:#8b5cf6;
+            color:white;
+            border:none;
+            border-radius:10px;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn-submit:hover{
+            background:#7c3aed;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<h1>Create Placement Drive</h1>
+<div class="container">
 
-<form action="/drive/create"
-method="post">
+    <h1>Create Placement Drive</h1>
 
-<input type="text"
-name="company_name"
-placeholder="Company">
+    <form action="/drive/create" method="post">
 
-<br><br>
+        <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" name="company_name" placeholder="Enter Company Name" required>
+        </div>
 
-<input type="text"
-name="role"
-placeholder="Role">
+        <div class="form-group">
+            <label>Role</label>
+            <input type="text" name="role" placeholder="Enter Role" required>
+        </div>
 
-<br><br>
+        <div class="form-group">
+            <label>Package (LPA)</label>
+            <input type="number" step="0.01" name="package" placeholder="Enter Package" required>
+        </div>
 
-<input type="number"
-step="0.01"
-name="package"
-placeholder="Package">
+        <div class="form-group">
+            <label>Drive Date</label>
+            <input type="date" name="drive_date" required>
+        </div>
 
-<br><br>
+        <div class="form-group">
+            <label>Eligibility CGPA</label>
+            <input type="number" step="0.01" name="eligibility_cgpa" placeholder="Enter CGPA" required>
+        </div>
 
-<input type="date"
-name="drive_date">
+        <button type="submit" class="btn-submit">
+            Create Drive
+        </button>
 
-<br><br>
+    </form>
 
-<input type="number"
-step="0.01"
-name="eligibility_cgpa"
-placeholder="Eligibility CGPA">
-
-<br><br>
-
-<button>
-Create Drive
-</button>
-
-</form>
+</div>
 
 </body>
 </html>
