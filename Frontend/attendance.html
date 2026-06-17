@@ -1,37 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Create Attendance</title>
+    <title>Create Attendance</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#0f172a;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:450px;
+            background:#1e293b;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0px 0px 20px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            color:white;
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            color:#cbd5e1;
+            margin-bottom:8px;
+        }
+
+        input, select{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:10px;
+            background:#334155;
+            color:white;
+            outline:none;
+        }
+
+        input::placeholder{
+            color:#94a3b8;
+        }
+
+        .btn-submit{
+            width:100%;
+            padding:15px;
+            background:#f59e0b;
+            color:white;
+            border:none;
+            border-radius:10px;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn-submit:hover{
+            background:#d97706;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<h1>Create Attendance</h1>
+<div class="container">
 
-<form action="/attendance/create"
-method="post">
+    <h1>Create Attendance</h1>
 
-<input type="text"
-name="student_id"
-placeholder="Student ID">
+    <form action="/attendance/create" method="post">
 
-<br><br>
+        <div class="form-group">
+            <label>Student ID</label>
+            <input type="text" name="student_id" placeholder="Enter Student ID" required>
+        </div>
 
-<input type="text"
-name="date"
-placeholder="Date">
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" name="date" required>
+        </div>
 
-<br><br>
+        <div class="form-group">
+            <label>Status</label>
+            <select name="status" required>
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+                <option value="Leave">Leave</option>
+            </select>
+        </div>
 
-<input type="text"
-name="status"
-placeholder="Status">
+        <button type="submit" class="btn-submit">
+            Create Attendance
+        </button>
 
+    </form>
 
-<button>
-Create
-</button>
-
-</form>
+</div>
 
 </body>
 </html>
