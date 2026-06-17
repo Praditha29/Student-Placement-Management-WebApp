@@ -1,60 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Interview Feedback</title>
+    <title>Interview Feedback</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:#0f172a;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:450px;
+            background:#1e293b;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0px 0px 20px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            color:white;
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            color:#cbd5e1;
+            margin-bottom:8px;
+        }
+
+        input, textarea, select{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:10px;
+            background:#334155;
+            color:white;
+            outline:none;
+        }
+
+        textarea{
+            resize:none;
+            height:80px;
+        }
+
+        select{
+            cursor:pointer;
+        }
+
+        input::placeholder,
+        textarea::placeholder{
+            color:#94a3b8;
+        }
+
+        .btn-submit{
+            width:100%;
+            padding:15px;
+            background:#22c55e;
+            color:white;
+            border:none;
+            border-radius:10px;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn-submit:hover{
+            background:#16a34a;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<h1>Interview Feedback</h1>
+<div class="container">
 
-<form action="/feedback/create"
-method="post">
+    <h1>Interview Feedback</h1>
 
-<input type="number"
-name="student_id"
-placeholder="Student ID">
+    <form action="/feedback/create" method="post">
 
-<br><br>
+        <div class="form-group">
+            <label>Student ID</label>
+            <input type="number" name="student_id" placeholder="Enter Student ID" required>
+        </div>
 
-<input type="text"
-name="company_name"
-placeholder="Company Name">
+        <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" name="company_name" placeholder="Enter Company Name" required>
+        </div>
 
-<br><br>
+        <div class="form-group">
+            <label>Technical Feedback</label>
+            <textarea name="technical_feedback" placeholder="Enter technical feedback"></textarea>
+        </div>
 
-<textarea name="technical_feedback">
-</textarea>
+        <div class="form-group">
+            <label>HR Feedback</label>
+            <textarea name="hr_feedback" placeholder="Enter HR feedback"></textarea>
+        </div>
 
-<br><br>
+        <div class="form-group">
+            <label>Result</label>
+            <select name="result">
+                <option value="Selected">Selected</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Waiting">Waiting</option>
+            </select>
+        </div>
 
-<textarea name="hr_feedback">
-</textarea>
+        <button type="submit" class="btn-submit">
+            Save Feedback
+        </button>
 
-<br><br>
+    </form>
 
-<select name="result">
-
-<option>
-Selected
-</option>
-
-<option>
-Rejected
-</option>
-
-<option>
-Waiting
-</option>
-
-</select>
-
-<br><br>
-
-<button>
-Save
-</button>
-
-</form>
+</div>
 
 </body>
 </html>
